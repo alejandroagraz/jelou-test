@@ -33,18 +33,22 @@ export class UsersService {
   }
 
   async getDetail(id: string): Promise<UserEntity> {
-    const user = await this.userRepository
-      .createQueryBuilder('user')
-      .leftJoinAndSelect('user.post', 'post')
-      .leftJoinAndSelect('user.comment', 'comment')
-      .where('user.id = :id', { id: id })
-      .getOne();
+    try {
+      const user = await this.userRepository
+        .createQueryBuilder('user')
+        .leftJoinAndSelect('user.post', 'post')
+        .leftJoinAndSelect('user.comment', 'comment')
+        .where('user.id = :id', { id: id })
+        .getOne();
 
-    if (!user) {
-      throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+      if (!user) {
+        throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+      }
+
+      return user;
+    } catch (e) {
+      throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
     }
-
-    return user;
   }
 
   async create(data: CreateUserInput): Promise<UserDto> {
@@ -127,8 +131,8 @@ export class UsersService {
 
   async findManyUserForTagPostId(id: string): Promise<UserEntity> {
     return await this.userRepository
-        .createQueryBuilder('user')
-        .where('user.id = :id', { id: id })
-        .getOne();
+      .createQueryBuilder('user')
+      .where('user.id = :id', { id: id })
+      .getOne();
   }
 }

@@ -26,7 +26,7 @@
 ```diff
 
 + ┌── jelou-test
-+ |  ├── database-mysql
++ |  ├── database-postgres
 + |  ├── projects
 + |  | └─ backend-jelou
 + |  ├── docker-compose.debug
@@ -82,7 +82,7 @@ newgrp docker
                 export COMPOSE_HTTP_TIMEOUT=220
     
 + When completing the previous steps we are ready to go to the browser to start using our application go to browser to url http://localhost:3000/auths/login
-    User: joseagraz29@gmail.com
+    User: jagraz29
     Password: Passw*123
 ```
 
@@ -122,7 +122,7 @@ newgrp docker
               yarn run start:dev
     
 + When completing the previous steps we are ready to go to the browser to start using our application go to browser to url http://localhost:3000/auths/login
-    User: joseagraz29@gamil.com
+    User: jagraz29
     Password: Passw*123
 ```
 

@@ -16,5 +16,6 @@ RUN yarn install
 COPY . .
 RUN yarn run build
 
+export COMPOSE_HTTP_TIMEOUT=220
 EXPOSE 3000
 CMD ["yarn", "start:dev"]

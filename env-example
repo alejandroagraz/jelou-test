@@ -1,0 +1,7 @@
+PROJECT_NAME=api-jelou
+JOB_BASE_NAME=develop
+PORT_LOCAL=3000
+DB_NAME=jelou_local
+DB_PORT=3306
+DB_USER=admin
+DB_PASSWORD=admin

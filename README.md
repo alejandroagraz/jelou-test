@@ -5,7 +5,7 @@
 ## Characteristic
 * User login
 * JWT storage in NestJs
-* Store products in MySQL
+* Generate data for DB in Faker
 * All environments are built with docker and docker-compose
 
 ## Production environment
@@ -18,15 +18,17 @@
 
 *  These instructions will allow you to obtain a copy of the running project on your local machine for development and testing purposes.
 
-* Look [Choppi]() to know the project.
+* Look [Jelou]() to know the project.
 
 ## Usage
 
 #### Directory Structure
 ```diff
 
-+ ┌── choppi-server
++ ┌── jelou-test
++ |  ├── database-mysql
 + |  ├── projects
++ |  | └─ backend-jelou
 + |  ├── docker-compose.debug
 + |  ├── docker-compose.yml
 + |  ├── README.md
@@ -65,46 +67,62 @@ newgrp docker
 
 + Rename the file found in the root directory ./ example-env to .env
 
-+ Go to directory the projects/backend directory and rename the file example-env to .env
++ Go to directory the projects/backend-jelou directory and rename the file example-env to .env
     
 + Go to directory the /workspace and run the following commands from terminal
-    docker-compose up --build -d
-    docker-compose exec api-server yarn run typeorm:generate-migration
+    docker-compose up -d
+    docker-compose exec api-server `yarn run typeorm:generate-migration`
     docker-compose exec api-server yarn run typeorm:run-migrations
     docker-compose exec api-server yarn run seed
     
++ If during the compilation (docker-compose up -d) there is an error example: 
+        ERROR: for server-yape-develop  UnixHTTPConnectionPool(host='localhost', port=None): Read timed out. (read timeout=60))
+            Please execute the following commands from the terminal:
+                export DOCKER_CLIENT_TIMEOUT=220
+                export COMPOSE_HTTP_TIMEOUT=220
+    
 + When completing the previous steps we are ready to go to the browser to start using our application go to browser to url http://localhost:3000/auths/login
-    User: admin@email.com
+    User: joseagraz29@gmail.com
     Password: Passw*123
 ```
 
 ## Prerequisites for installation conventional ⚙️
 
+```diff
+
 + Go to directory the projects directory and rename the file example-env to .env
-    Set up a mysql database and modify the .env file with the connection parameters
     
-+ Run the following commands from terminal
++ Run the following commands from 
     
-    1. Install the dependencies
-        yarn install
+    1. Go to directory the /projects/backend-jelou
+  
+       1. Rename the file example-env to .env
+
+       2. Run the following commands from terminal:
+       
+          1. Install the dependencies:
+              yarn install
         
-    2. Generate the certificates to sign the tokens, enter the `src/auth/certs` folder once inside, execute the following command:
-        openssl genrsa -out jwt-private.key 2048 && openssl rsa -in jwt-private.key -pubout -out jwt-public.key
+          2. Generate the certificates to sign the tokens, enter the `src/auth/certs` folder once inside, execute the following command:
+              openssl genrsa -out jwt-private.key 2048 && openssl rsa -in jwt-private.key -pubout -out jwt-public.key
     
-    3. Compile the application
-        yarn build
+          3. Compile the application:
+              yarn build
     
-    4. Generate the migrations
-        yarn run typeorm:generate-migration
+          4. Generate the migrations:
+              yarn run typeorm:generate-migration
     
-    5. Run the migrations
-        yarn run typeorm:run-migrations
+          5. Run the migrations:
+              yarn run typeorm:run-migrations
     
-    6. Run the seeders to create the test data
-        yarn run seed
+          6. Run the seeders to create the test data:
+              yarn run seed
+          
+          7. Run the application:
+              yarn run start:dev
     
 + When completing the previous steps we are ready to go to the browser to start using our application go to browser to url http://localhost:3000/auths/login
-    User: admin@email.com
+    User: joseagraz29@gamil.com
     Password: Passw*123
 ```
 
@@ -114,7 +132,7 @@ newgrp docker
 ```diff
 
 + Edit your operating system's hosts file, adding the container's IP address example hostnames:
-    172.18.0.4:3000 m.choppi.xyz
+    172.18.0.4:3000 m.jelou.xyz
 
 + In the case of Linux operating system the hosts file is located in the etc directory (/etc/hosts).
 
@@ -169,7 +187,9 @@ newgrp docker
 ## Built With 🛠️
 ```diff
 +    NestJs
-+    Express
++    Faker
++    TypeOrm
++    Moment
 +    MySQL
 +    Docker
 +    Docker Compose

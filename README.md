@@ -196,9 +196,40 @@ newgrp docker
 +    Swagger
 ```
 
+#### Answers to multiple choice questions
+```diff
++ 1 => What verb should you choose for retrieving trade orders with the API server?
+    a) GET
+    
+    
++ 2 => Which of the following API paths should you use?
+    b) /contacts/{contact_id}
+    
++ 2 => Which of the following API paths should you use?
+    b) /contacts/{contact_id}
+    
++ 3 => Which HTTP error code(s) should you use to keep the system secure and still report that an error occurred?
+    a) 404 if the user doesn't exist, and 403 if the password is wrong.
+    
++ 4 => True or false: You should put a fake UUID into the example code (instead of just the text "UUID") as a placeholder.
+    b) FALSE
+
++ 5 => How much work should your method, handleErrors(response), handle?
+    b) Check for the presence of an error. If it exists, throw an exception with the error. 
+
++ 6 => Which way should you implement this error handling?
+    b) Make a trait to handle errors so it'll collect errors in any class that uses it. 
+
++ 7 => Which of the following should you use to name your method?
+    d) parseDataForProductsAndSetArray()
+
++ 8 => What strategy should you use to store and access these credentials?
+    d) Put them in a .env file, load data from it into a configuration system, then request the credentials from a database service provider. 
+```
+
+
 ## Developed Container ✒️
 ```diff
-
 +    Developed by: Jose Agraz 
 +    Email: joseagraz29@gamil.com
 ```

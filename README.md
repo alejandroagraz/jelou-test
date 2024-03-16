@@ -11,8 +11,14 @@
 ## Production environment
 * [Production environment](http://localhost:3000/auths/login)
 
+## Production environment swagger
+* [Production environment](http://localhost:3000/docs)
+
 ## Testing environment
 * [Testing environment](http://localhost:3000/auths/login)
+
+## Testing environment swagger
+* [Production environment](http://localhost:3000/docs)
 
 ## Starting 🚀
 
@@ -190,7 +196,7 @@ newgrp docker
 +    Faker
 +    TypeOrm
 +    Moment
-+    MySQL
++    PostgreSQL
 +    Docker
 +    Docker Compose
 +    Swagger

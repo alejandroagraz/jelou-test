@@ -65,13 +65,13 @@ newgrp docker
 
 ```diff
 
-+ Rename the file found in the root directory ./ example-env to .env
++ Rename the file found in the root directory ./ example-env to .env Uncomment the line #DATABASE_HOST=database in this file 
 
 + Go to directory the projects/backend-jelou directory and rename the file example-env to .env
     
 + Go to directory the /workspace and run the following commands from terminal
     docker-compose up -d
-    docker-compose exec api-server `yarn run typeorm:generate-migration`
+    docker-compose exec api-server yarn run typeorm:generate-migration
     docker-compose exec api-server yarn run typeorm:run-migrations
     docker-compose exec api-server yarn run seed
     

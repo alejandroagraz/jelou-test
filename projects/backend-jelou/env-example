@@ -1,4 +1,10 @@
-DATABASE_HOST=localhost
+
+### For Docker ##
+#DATABASE_HOST=database
+
+### For Local ##
+#DATABASE_HOST=localhost
+
 DATABASE_PORT=5432
 DATABASE_USER=admin
 DATABASE_PASSWORD=admin

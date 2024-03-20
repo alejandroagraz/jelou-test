@@ -204,32 +204,59 @@ newgrp docker
 
 #### Answers to multiple choice questions
 ```diff
-+ 1 => What verb should you choose for retrieving trade orders with the API server?
++ 1 => Given an array of integers, keep a total score based on the following:
+    Add 1 point for every even number in the array.
+    add 3 point for every odd number in the array, except for the number "5".
+    add 5 points every time the number "5" appears in the array.
+    Note that 0 is considered even.
+    Examples: input: [1,2,3,4,5]
+    Output: 3
+    
+    Response) 
+        const numbers = [1,2,3,4,5]
+        // const numbers = [17,19,21]
+        // const numbers = [5,5,5]
+        
+        let acm= 0;
+        numbers.map(
+            (value) => {
+                if (value % 2 === 0) {
+                    acm = acm + 1;
+                } else if (value % 2 !== 0 && value !== 5) {
+                    acm = acm  + 3
+                } else {
+                    acm = acm + 5;
+                }
+            });
+        
+        console.log(acm);
+    
++ 2 => What verb should you choose for retrieving trade orders with the API server?
     a) GET
     
     
-+ 2 => Which of the following API paths should you use?
++ 3 => Which of the following API paths should you use?
     b) /contacts/{contact_id}
     
-+ 2 => Which of the following API paths should you use?
++ 4 => Which of the following API paths should you use?
     b) /contacts/{contact_id}
     
-+ 3 => Which HTTP error code(s) should you use to keep the system secure and still report that an error occurred?
++ 5 => Which HTTP error code(s) should you use to keep the system secure and still report that an error occurred?
     a) 404 if the user doesn't exist, and 403 if the password is wrong.
     
-+ 4 => True or false: You should put a fake UUID into the example code (instead of just the text "UUID") as a placeholder.
++ 6 => True or false: You should put a fake UUID into the example code (instead of just the text "UUID") as a placeholder.
     b) FALSE
 
-+ 5 => How much work should your method, handleErrors(response), handle?
++ 7 => How much work should your method, handleErrors(response), handle?
     b) Check for the presence of an error. If it exists, throw an exception with the error. 
 
-+ 6 => Which way should you implement this error handling?
++ 8 => Which way should you implement this error handling?
     b) Make a trait to handle errors so it'll collect errors in any class that uses it. 
 
-+ 7 => Which of the following should you use to name your method?
++ 9 => Which of the following should you use to name your method?
     d) parseDataForProductsAndSetArray()
 
-+ 8 => What strategy should you use to store and access these credentials?
++ 10 => What strategy should you use to store and access these credentials?
     d) Put them in a .env file, load data from it into a configuration system, then request the credentials from a database service provider. 
 ```
 
